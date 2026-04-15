@@ -18,10 +18,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-}
-
-.navbar {
-  background: #000000;
+  background: #000;
   color: white;
   padding: 15px 0;
 }
@@ -30,6 +27,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: gold;
 }
 
 .navbar ul {
@@ -41,17 +48,24 @@
   margin-left: 20px;
 }
 
-.navbar a {
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
   color: white;
-  text-decoration: none;
+}
+
+.menu-toggle:hover {
+  color: gold;
 }
 
 /* HERO */
 .hero {
   height: 60vh;
   background:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("gamelan3.jpg") center/cover no-repeat;
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)),
+    url("../img/gamelan3.jpg") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,10 +84,6 @@
 
 /* CONTENT */
 .content {
-  margin-top: 60px;
-}
-
-.content {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 20px;
@@ -81,6 +91,17 @@
 }
 
 /* ARTICLE */
+.article-img {
+  width: 100%;
+  margin: 15px 0;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.article-img:hover {
+  transform: scale(1.03);
+}
+
 .main-article {
   background: white;
   padding: 20px;
@@ -89,21 +110,14 @@
 }
 
 .main-article p {
-  line-height: 1.8;
-}
-
-.main-article h2 {
-  margin-bottom: 10px;
-}
-
-.main-article p {
   margin-bottom: 15px;
   line-height: 1.6;
 }
 
 /* SIDEBAR */
-
 .sidebar {
+  background: #fff;
+  padding: 20px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -111,11 +125,6 @@
   width: 100%;
   margin-bottom: 10px;
   border-radius: 8px;
-}
-
-.sidebar {
-  background: #ffffff;
-  padding: 20px;
 }
 
 .sidebar ul {
@@ -134,28 +143,64 @@ footer {
   padding: 20px;
 }
 
-/* RESPONSIVE */
+/* ========================= */
+/*  MOBILE RESPONSIVE */
+/* ========================= */
+
 @media (max-width: 768px) {
+
+  /* Navbar layout */
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+
+  nav {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background: #000;
+
+  nav {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+}
+
+  nav.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin: 0;
+    padding: 12px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+  }
+
+  nav ul li:hover {
+  background: #111;
+}
+
+nav {
+  transition: all 0.3s ease;
+}
+
+  /* Content */
   .content {
     grid-template-columns: 1fr;
   }
 
-  .navbar ul {
-    flex-direction: column;
-  }
-
-  .navbar ul li {
-    margin: 10px 0;
-  }
-
   .hero-text h2 {
     font-size: 28px;
-  }
-
-  .article-img {
-    width: 100%;
-    margin: 15px 0;
-    border-radius: 10px;
   }
 
   body {
